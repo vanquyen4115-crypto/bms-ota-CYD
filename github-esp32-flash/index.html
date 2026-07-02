@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TOOL BMS ESP32 Flasher</title>
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101820;
+      --panel: #1c2b33;
+      --panel2: #223741;
+      --text: #f3f7f8;
+      --muted: #9fb0b8;
+      --accent: #39c5a7;
+      --warn: #f0b44c;
+      --line: #38505a;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+    }
+    main {
+      width: min(520px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 22px;
+      box-shadow: 0 18px 60px rgba(0, 0, 0, .28);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+    .version {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .box {
+      background: var(--panel2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 14px 0;
+    }
+    esp-web-install-button {
+      display: block;
+      margin: 18px 0 8px;
+    }
+    p {
+      line-height: 1.45;
+      margin: 9px 0;
+    }
+    .muted {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .warn {
+      color: var(--warn);
+      font-weight: 700;
+    }
+    code {
+      background: rgba(255, 255, 255, .08);
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>TOOL BMS</h1>
+    <div class="version">ESP32 Web Flasher</div>
+
+    <div class="box">
+      <p><strong>Flash firmware directly from this page.</strong></p>
+      <p class="muted">Use Chrome or Microsoft Edge on Windows/macOS/Linux. Connect the ESP32 by USB, then press Install.</p>
+      <esp-web-install-button manifest="manifest.json">
+        <button slot="activate">INSTALL TOOL BMS</button>
+        <span slot="unsupported">This browser does not support Web Serial. Use Chrome or Edge.</span>
+        <span slot="not-allowed">Web Serial is blocked. Open this page with HTTPS or localhost.</span>
+      </esp-web-install-button>
+    </div>
+
+    <div class="box">
+      <p class="warn">First install can erase ESP32 flash.</p>
+      <p class="muted">After flashing, the device will reboot. If the serial port is not visible, install the CP210x or CH340 USB driver and reconnect the board.</p>
+    </div>
+
+    <p class="muted">Firmware files are loaded from <code>manifest.json</code> in this GitHub Pages folder.</p>
+  </main>
+</body>
+</html>
